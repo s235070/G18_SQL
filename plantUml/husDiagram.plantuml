@@ -1,0 +1,73 @@
+@startuml DKAvisen
+!theme plain
+
+entity Newspaper {
+  Title
+  FoundingDate
+  Periodicity
+}
+
+entity Edition {
+  PublicationDate
+}
+
+entity Article {
+  Title
+  Text
+  Topic
+  ReadCount
+}
+
+entity Photo {
+  Title
+  ShotDate
+}
+
+entity Journalist {
+  <u>CPRNumber</u>
+  FirstName
+  LastName
+  Address
+  *Street name
+  *Housenumber
+  *City
+  *ZIPCode
+  *Country
+  TelephoneNumbers
+  EmailAddresses
+}
+
+'Relationships
+entity "WrittenBy" {
+  Role
+}
+
+rectangle Publishes {
+}
+
+rectangle EditedBy {
+}
+
+rectangle Contains {
+}
+
+rectangle Shoots {
+}
+
+rectangle IncludedIn {
+}
+
+Newspaper <-right- Publishes
+Publishes -right- Edition
+Edition <-right- Contains
+Edition <-right- EditedBy
+EditedBy -right-> Journalist
+Contains -right- Article
+Article -right- "WrittenBy"
+"WrittenBy" -right- Journalist
+Photo -down- Shoots
+Shoots -down-> Journalist
+Article -down- IncludedIn
+IncludedIn -down- Photo
+
+@enduml
