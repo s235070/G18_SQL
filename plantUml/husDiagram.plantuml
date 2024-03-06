@@ -1,73 +1,80 @@
 @startuml DKAvisen
 !theme plain
 
-entity Newspaper {
-  Title
-  FoundingDate
-  Periodicity
+
+object newspaper {
+  {static}nTitle
+  fDate
+  periodicity
 }
 
-entity Edition {
-  PublicationDate
+object edition {
+  {static}eID
+  pDate
 }
 
-entity Article {
-  Title
-  Text
-  Topic
-  ReadCount
+object article {
+  {static}title
+  text
+  topic
+  readCount
 }
 
-entity Photo {
-  Title
-  ShotDate
+object photo {
+  {static}title
+  shotDate
 }
 
-entity Journalist {
-  <u>CPRNumber</u>
-  FirstName
-  LastName
-  Address
-  *Street name
-  *Housenumber
-  *City
-  *ZIPCode
-  *Country
-  TelephoneNumbers
-  EmailAddresses
+object journalist {
+  {static}cpr
+  name
+  \tfirstName
+  \tlastName
+  address
+    \tstreetName
+    \tcivic
+    \tcity
+    \tzipCode
+    \tcountry  
+  telephoneNumbers
+  emailAddresses
 }
 
-'Relationships
-entity "WrittenBy" {
-  Role
+rectangle role{
 }
 
-rectangle Publishes {
+
+hexagon writes{
 }
 
-rectangle EditedBy {
+hexagon publishes{
 }
 
-rectangle Contains {
+hexagon edits{
 }
 
-rectangle Shoots {
+hexagon contains {
 }
 
-rectangle IncludedIn {
+hexagon shoots{
 }
 
-Newspaper <-right- Publishes
-Publishes -right- Edition
-Edition <-right- Contains
-Edition <-right- EditedBy
-EditedBy -right-> Journalist
-Contains -right- Article
-Article -right- "WrittenBy"
-"WrittenBy" -right- Journalist
-Photo -down- Shoots
-Shoots -down-> Journalist
-Article -down- IncludedIn
-IncludedIn -down- Photo
+hexagon includes {
+}
+
+newspaper <-right- publishes
+publishes -right- edition
+edition <-right- contains
+edition <-right- edits
+edits -right- journalist
+contains -right- article
+article -right- writes
+article -right- writes
+writes .left role
+writes -right- journalist
+photo -down- shoots
+shoots -down-> journalist
+article -down- includes
+includes -down- photo
 
 @enduml
