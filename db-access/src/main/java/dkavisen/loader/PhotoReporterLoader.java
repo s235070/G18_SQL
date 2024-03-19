@@ -14,7 +14,7 @@ import dkavisen.model.elements.Shoots;
 import dkavisen.model.relations.PhotoReporter;
 
 public class PhotoReporterLoader {
-    public List<PhotoReporter> from(String filename) throws FileNotFoundException, NumberFormatException, ParseException {
+    public ArrayList<PhotoReporter> from(String filename) throws FileNotFoundException, NumberFormatException, ParseException {
         ArrayList<PhotoReporter> list = new ArrayList<>();
         Scanner scanner = new Scanner(new File(filename));
         SimpleDateFormat dateParser = new SimpleDateFormat("yyyyMMdd");
