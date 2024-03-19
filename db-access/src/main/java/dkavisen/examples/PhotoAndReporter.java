@@ -3,19 +3,19 @@ package dkavisen.examples;
 import java.util.Date;
 
 public class PhotoAndReporter {
-	private final ReporterExample reporter;
-	private final PhotoExample photo;
+	private final Reporter reporter;
+	private final Photo photo;
 
 	public PhotoAndReporter(String title, Date date, Integer cpr, String firstName, String lastName, String streetName, Integer civicNumber, Integer zipCode, String country) {
-		reporter = new ReporterExample(cpr, firstName, lastName, streetName, civicNumber, zipCode, country);
-		photo = new PhotoExample(title, date);
+		reporter = new Reporter(cpr, firstName, lastName, streetName, civicNumber, zipCode, country);
+		photo = new Photo(title, date);
 	}
 
-	public ReporterExample getReporter() {
+	public Reporter getReporter() {
 		return reporter;
 	}
 
-	public PhotoExample getPhoto() {
+	public Photo getPhoto() {
 		return photo;
 	}
 }
