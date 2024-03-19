@@ -8,4 +8,11 @@ public record Reporter(
     Integer civicNumber,
     Integer zipCode,
     String country
-) {}
+) {
+    @Override
+    public String toString() {
+        final String D = ";";
+
+        return cpr + D + firstName + D + lastName + D + streetName + D + civicNumber + D + zipCode + D + country;
+    }
+}
