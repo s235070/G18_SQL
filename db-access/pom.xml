@@ -18,10 +18,13 @@
       <version>5.9.1</version>
       <scope>test</scope>
     </dependency>
+    <!-- Reference the MySQL JDBC driver -->
     <dependency>
-      <groupId>org.mariadb.jdbc</groupId>
-      <artifactId>mariadb-java-client</artifactId>
-      <version>3.3.3</version>
-    </dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.3.0</version>
+    <scope>system</scope>
+    <systemPath>${project.basedir}/lib/mysql-connector-j-8.3.0.jar</systemPath>
+</dependency>
   </dependencies>
 </project>
