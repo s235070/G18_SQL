@@ -16,7 +16,7 @@ import dkavisen.model.relations.PhotoReporter;
 public class PhotoReporterLoader {
     public ArrayList<PhotoReporter> from(String filename) throws FileNotFoundException, NumberFormatException, ParseException {
         ArrayList<PhotoReporter> list = new ArrayList<>();
-        Scanner scanner = new Scanner(new File("C:\\Users\\linib\\OneDrive\\Documents\\data bases\\G18_SQL\\db-access\\" + filename));
+        Scanner scanner = new Scanner(new File("C:\\Users\\linib\\OneDrive\\Documents\\second semester\\data bases\\project\\db-access\\" + filename));
         SimpleDateFormat dateParser = new SimpleDateFormat("yyyyMMdd");
         while (scanner.hasNextLine()) {
             String[] words = scanner.nextLine().split(";");
