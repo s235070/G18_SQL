@@ -16,10 +16,12 @@ class Main {
         PhotoReporterUploader uploader = new PhotoReporterUploader();
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("What is your password?");
+        final String password = scanner.nextLine();
         System.out.println("Which file do you want to upload from?");
         try {
             ArrayList<PhotoReporter> list = loader.from(scanner.nextLine() + ".csv");
-            list.stream().forEach(uploader::upload);
+            list.stream().forEach(x -> uploader.upload(x, password));
             System.out.println("Upload successfully completed");
         } catch (FileNotFoundException | ParseException e) {
             System.out.println("Something went wrong! " + e.getMessage());
@@ -30,7 +32,7 @@ class Main {
         while (true) {
             String line = scanner.nextLine();
             if (line.equalsIgnoreCase("exit")) break;
-            else DatabaseQueryExecutor.printQuery(line);
+            else DatabaseQueryExecutor.printQuery(line, password);
         }
 
         System.out.println("Now exiting program...");

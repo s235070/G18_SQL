@@ -16,10 +16,9 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 public class PhotoReporterUploader {
-    public void upload(PhotoReporter photoReporter) {
+    public void upload(PhotoReporter photoReporter, String password) {
         String url = "jdbc:mysql://localhost:3306/project";
         String user = "root";
-        String password = "Hetisklaar1234";
 
         String sql = "INSERT INTO photo (pTitle, shotDate) VALUES (?, ?)";
 

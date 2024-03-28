@@ -3,10 +3,9 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class DatabaseQueryExecutor {
-    public static void printQuery(String table){
+    public static void printQuery(String table, String password){
         final String dbURL = "jdbc:mysql://localhost:3306/project";
         final String user = "root";
-        final String password = "mypassword";
 
         try (
             Connection connection = DriverManager.getConnection(dbURL, user, password);
