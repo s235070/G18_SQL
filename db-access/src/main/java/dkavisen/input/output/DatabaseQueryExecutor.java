@@ -2,7 +2,7 @@ package dkavisen.input.output;
 import java.sql.*;
 
 public class DatabaseQueryExecutor {
-    public static void printQuery(String table, String password, Connection connection){
+    public static void printQuery(String table, Connection connection){
 
         try (
             // Establishing connection

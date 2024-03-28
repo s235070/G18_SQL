@@ -16,7 +16,7 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 public class PhotoReporterUploader {
-    public void upload(PhotoReporter photoReporter, String password, Connection connection) {
+    public void upload(PhotoReporter photoReporter, Connection connection) {
 
         String sql = "INSERT INTO photo (pTitle, shotDate) VALUES (?, ?)";
 

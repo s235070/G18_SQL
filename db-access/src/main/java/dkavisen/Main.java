@@ -18,7 +18,6 @@ class Main {
         final String url = "jdbc:mysql://localhost:3306/project";
         final String user = "root";
 
-
         PhotoReporterLoader loader = new PhotoReporterLoader();
         PhotoReporterUploader uploader = new PhotoReporterUploader();
         Scanner scanner = new Scanner(System.in);
@@ -29,7 +28,7 @@ class Main {
             System.out.println("Which file do you want to upload from?");
             try {
                 ArrayList<PhotoReporter> list = loader.from(scanner.nextLine() + ".csv");
-                list.stream().forEach(x -> uploader.upload(x, password, connection));
+                list.stream().forEach(x -> uploader.upload(x, connection));
                 System.out.println("Upload successfully completed");
             } catch (FileNotFoundException | ParseException e) {
                 System.out.println("Something went wrong! " + e.getMessage());
@@ -40,7 +39,7 @@ class Main {
             while (true) {
                 String line = scanner.nextLine();
                 if (line.equalsIgnoreCase("exit")) break;
-                else DatabaseQueryExecutor.printQuery(line, password, connection);
+                else DatabaseQueryExecutor.printQuery(line, connection);
             }
 
             System.out.println("Now exiting program...");
