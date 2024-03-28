@@ -1,16 +1,15 @@
 package dkavisen.input.output;
 import java.sql.*;
-import java.util.Scanner;
 
 public class DatabaseQueryExecutor {
     public static void printQuery(String table, String password){
-        final String dbURL = "jdbc:mysql://localhost:3306/project";
+        final String url = "jdbc:mysql://localhost:3306/project";
         final String user = "root";
 
         try (
-            Connection connection = DriverManager.getConnection(dbURL, user, password);
+            // Establishing connection
+            Connection connection = DriverManager.getConnection(url, user, password);
             Statement stmt = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            Scanner scanner = new Scanner(System.in);
         ) {
             System.out.println();
 
