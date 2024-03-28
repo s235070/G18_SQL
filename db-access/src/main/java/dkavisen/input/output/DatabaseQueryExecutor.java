@@ -2,13 +2,10 @@ package dkavisen.input.output;
 import java.sql.*;
 
 public class DatabaseQueryExecutor {
-    public static void printQuery(String table, String password){
-        final String url = "jdbc:mysql://localhost:3306/project";
-        final String user = "root";
+    public static void printQuery(String table, String password, Connection connection){
 
         try (
             // Establishing connection
-            Connection connection = DriverManager.getConnection(url, user, password);
             Statement stmt = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         ) {
             System.out.println();

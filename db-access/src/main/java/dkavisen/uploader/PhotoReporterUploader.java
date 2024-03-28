@@ -16,15 +16,12 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 public class PhotoReporterUploader {
-    public void upload(PhotoReporter photoReporter, String password) {
-        String url = "jdbc:mysql://localhost:3306/project";
-        String user = "root";
+    public void upload(PhotoReporter photoReporter, String password, Connection connection) {
 
         String sql = "INSERT INTO photo (pTitle, shotDate) VALUES (?, ?)";
 
         try (
             // Establishing connection
-            Connection connection = DriverManager.getConnection(url, user, password);
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
         ) {
 
