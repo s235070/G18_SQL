@@ -12,11 +12,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.util.Scanner;
 
 public class PhotoReporterUploader {
-    public void upload(PhotoReporter photoReporter, Connection connection) {
+    public void upload(PhotoReporter photoReporter, Connection connection){
 
         String sql = "INSERT INTO photo (pTitle, shotDate) VALUES (?, ?)";
 
@@ -50,9 +51,12 @@ public class PhotoReporterUploader {
 
             preparedStatement1.executeUpdate(); // Execute the query for shoots
 
+        }catch (SQLIntegrityConstraintViolationException e) {
+            System.out.println("File Already Uploaded: " + photoReporter.photo().title());
         } catch (SQLException e) {
-            // Handle any SQL errors
             e.printStackTrace();
         }
     }
 }
+
+

@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -18,24 +19,26 @@ class Main {
         final String url = "jdbc:mysql://localhost:3306/project";
         final String user = "root";
 
+
         PhotoReporterLoader loader = new PhotoReporterLoader();
         PhotoReporterUploader uploader = new PhotoReporterUploader();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("What is your password?");
+        System.out.println("\nWhat is your password?");
         final String password = scanner.nextLine();
-        try (final Connection connection = DriverManager.getConnection(url, user, password)) {   
-            System.out.println("Which file do you want to upload from?");
+        try (final Connection connection = DriverManager.getConnection(url, user, password)) {
+            System.out.println("\n*** CONNECTED TO DATABASE ***");   
+            System.out.println("\nWhich file do you want to upload from?");
             try {
                 ArrayList<PhotoReporter> list = loader.from(scanner.nextLine() + ".csv");
+                System.out.println();
                 list.stream().forEach(x -> uploader.upload(x, connection));
-                System.out.println("Upload successfully completed");
-            } catch (FileNotFoundException | ParseException e) {
+                System.out.println("\nUpload successfully completed");
+            }catch (FileNotFoundException | ParseException e) {
                 System.out.println("Something went wrong! " + e.getMessage());
-            }
+            } 
 
-            System.out.println("Now running SELECT queries, name the table to be queried");
-            System.out.println("Exit by writing \"exit\"");
+            System.out.println("Now running SELECT queries, name the table to be queried OR exit by writing \\\"exit\\\"");
             while (true) {
                 String line = scanner.nextLine();
                 if (line.equalsIgnoreCase("exit")) break;
