@@ -56,7 +56,7 @@ CREATE TABLE article
 	
 INSERT article VALUES
 	("Dog pees in village well!", "A village's water has become even less drinkable after a dog peed into it!", "Life", 20),
-	("Man buys drink!", "A shocking event has happened in Springfield where a man went and bought a beer", "Life", 20),
+	("Man buys drink!", "A shocking event has happened in Springfield where a man went and bought a beer", "Life", 230),
     ("Ornithopter manufacturer goes bankrupt!", "Milan Ornithopters has gone bankrupt on account of political instability in Northern Italy", "Business", 5),
     ("Tech Giants Merge", "Two leading tech companies announced a merger, shocking the industry.", "Business", 300),
 	("Revolution in Renewable Energy", "A new technology promises to dramatically reduce renewable energy costs.", "Science", 280),
@@ -65,7 +65,7 @@ INSERT article VALUES
 	("The Future of Public Transportation", "Innovations that could transform how we commute in the next decade.", "Technology", 210),
 	("Global Economic Outlook", "Analysts predict a slow recovery from the global economic downturn.", "Economics", 190),
 	("New Educational Reforms Announced", "The government unveils plans for major educational system reforms.", "Education", 170),
-	("Celebrity Chef Opens New Restaurant", "A celebrity chef brings his culinary expertise to a new fine dining experience.", "Lifestyle", 150),
+	("Celebrity Chef Opens New Restaurant", "A celebrity chef brings his culinary expertise to a new fine dining experience.", "Life", 150),
 	("Exploring the Deep Ocean", "Recent expeditions reveal fascinating details about deep-sea ecosystems.", "Environment", 130);
 SELECT * FROM article;
 

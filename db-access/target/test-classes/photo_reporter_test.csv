@@ -1,0 +1,3 @@
+photoId;date;reporterId;firstName;lastName;email;phone;yearOfBirth;numberOfPhotos;comment
+1;20240101;101;John;Doe;john.doe@example.com;5551234;1980;5;Great shots
+
