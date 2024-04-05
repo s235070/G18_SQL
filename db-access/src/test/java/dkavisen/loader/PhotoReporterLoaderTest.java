@@ -21,12 +21,12 @@ class PhotoReporterLoaderTest {
     @Test
     void testFromSuccess() {
         try {
-            // Prepare a temporary test file
+            // its Preparing a temporary test file
             String tempFileContent = "photoId;date;reporterId;firstName;lastName;email;phone;yearOfBirth;numberOfPhotos;comment\n"
                     + "1;20240101;101;John;Doe;john.doe@example.com;5551234;1980;5;Great shots";
             Path tempFilePath = Files.createTempFile("photo_reporter_test", ".csv");
             File tempFile = tempFilePath.toFile();
-            tempFile.deleteOnExit(); // Ensure the file is deleted after tests
+            tempFile.deleteOnExit(); // Ensuring that the file is deleted after tests
             Files.writeString(tempFilePath, tempFileContent);
 
             PhotoReporterLoader loader = new PhotoReporterLoader();
@@ -35,7 +35,7 @@ class PhotoReporterLoaderTest {
             // Assertions
             assertFalse(result.isEmpty(), "The result should not be empty.");
             assertEquals(1, result.size(), "There should be one PhotoReporter object in the list.");
-            // Add more detailed assertions here
+            // Add more detailed assertions here if needed guys!
         } catch (IOException e) {
             fail("Failed to create or write to the temporary file.");
         } catch (Exception e) {
@@ -43,6 +43,7 @@ class PhotoReporterLoaderTest {
         }
     }
 
+    // testing unnecessary test! nonexistent
     @Test
     void testFromFileNotFoundException() {
         PhotoReporterLoader loader = new PhotoReporterLoader();
@@ -53,7 +54,7 @@ class PhotoReporterLoaderTest {
     @Test
     void testFromDateParseException() {
         PhotoReporterLoader loader = new PhotoReporterLoader();
-        // Get the file from the resources folder
+        // It Gets the file from the resources folder
         ClassLoader classLoader = getClass().getClassLoader();
         URL resource = classLoader.getResource("invalid_date_format.csv");
         assertNotNull(resource, "Resource file not found.");
@@ -66,7 +67,7 @@ class PhotoReporterLoaderTest {
 
     @Test
     void testFromEmptyFile() throws IOException, ParseException {
-        // Create an empty temp file
+        // Creating an empty temp file
         Path tempFilePath = Files.createTempFile("empty_file_test", ".csv");
         File tempFile = tempFilePath.toFile();
         tempFile.deleteOnExit();
